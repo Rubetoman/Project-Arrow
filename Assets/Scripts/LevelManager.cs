@@ -17,6 +17,11 @@ public class LevelManager : MonoBehaviour
 {
     public Tilemap blocksTilemap;
 
+    // Tile types
+    public TileBase breakable;
+    public TileBase unbreakable;
+    public TileBase obstacle;
+    public TileBase goal;
 
     private Block[,] blocks;
 
@@ -48,11 +53,22 @@ public class LevelManager : MonoBehaviour
 
                 TileBase currentTile = blocksTilemap.GetTile(localPlace);
                 if(currentTile != null)
-                    blocks[column, row] = new Block(currentTile);
+                    blocks[column, row] = CreateBlock(currentTile);
 
                 ++row;
             }
             ++column; row = 0;
         }
+    }
+
+    Block CreateBlock(TileBase tile)
+    {
+        BlockType type = BlockType.None;
+        if (tile.name == breakable.name) type = BlockType.Breakable;
+        else if (tile.name == unbreakable.name) type = BlockType.Unbreakable;
+        else if (tile.name == obstacle.name) type = BlockType.Obstacle;
+        else if (tile.name == goal.name) type = BlockType.Goal;
+
+        return new Block(tile, type);
     }
 }

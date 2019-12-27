@@ -952,10 +952,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e125005b63bccaf4890d55b641bfddea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area:
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 1000, y: 1000, z: 0}
   blocksTilemap: {fileID: 48980623}
+  breakable: {fileID: 11400000, guid: 2f391c642967e7c43a336e26110a8744, type: 2}
+  unbreakable: {fileID: 11400000, guid: f682f810d1bd8404e96bd24e2afc6c1c, type: 2}
+  obstacle: {fileID: 11400000, guid: 70f46d546bfbcac48b9e41ad883c07c6, type: 2}
+  goal: {fileID: 11400000, guid: 09cc95140e0be2d478172a57eb993152, type: 2}
 --- !u!4 &869372440
 Transform:
   m_ObjectHideFlags: 0
